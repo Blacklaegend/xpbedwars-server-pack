@@ -62,6 +62,8 @@
 
 ## 开服面板
 
+![BedWars 服务器面板](docs/images/panel.png)
+
 内置独立开服面板，不需要安装 Python，解压后双击 `启动面板.exe` 即可使用。
 
 | 模块 | 功能 |
@@ -149,6 +151,8 @@
 │  ├─ BWCompass/                # 自研指南针插件源码
 │  ├─ BedWarsTeamSelector/      # 自研队伍选择器 / /zd 源码
 │  └─ BETag/                    # 自研 BE 前缀插件源码
+├─ forks/
+│  └─ BedWars1058/              # BedWars1058 修改补丁与说明
 ├─ docs/
 │  ├─ server-intro.md
 │  ├─ configuration.md
@@ -204,6 +208,31 @@
 | BETag | 基岩版 `[BE]` 前缀 | [plugins-src/BETag](plugins-src/BETag) |
 
 > 发布这些插件的编译 jar 时，请同时提供对应源码，以符合 GPLv3 要求。
+
+---
+
+## BedWars1058 修改版
+
+BedWars1058 是在上游基础上修改过的版本，修改记录和补丁源码放在：
+
+- [forks/BedWars1058](forks/BedWars1058)
+
+包含：
+
+- #1144 最终击杀报错修复
+- #1142 相关兼容修复
+- TNT 提示粒子报错修复
+- Shift+左键买一组
+- 护甲购买限制与死亡重置
+- 28 血上限
+- 铁锻炉升级相关修改
+
+说明：
+
+- 上游 BedWars1058 使用 GNU GPL v3
+- 本仓库保留上游 `LICENSE`
+- 实际发布修改后的 jar 时，需要同时提供完整的对应源码
+- 补丁源码不是完整上游源码，不能单独替代 GPL 的“对应源码”义务
 
 ---
 
