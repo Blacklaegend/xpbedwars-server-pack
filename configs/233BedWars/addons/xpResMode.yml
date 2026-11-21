@@ -1,0 +1,83 @@
+# 经验模式
+
+resRatio:
+  IRON: 1.0
+  GOLD: 10
+  EMERALD: 100.0
+
+currency: "等级"
+
+currency_color: "&a"
+
+selected: "&e点击选择！"
+
+unselected: "&e已选择！"
+
+choose_normal: "&e你选择了 &a&l普通模式"
+
+choose_exp: "&e你选择了 &b&l经验模式"
+
+pick_up_sound: "ENTITY_EXPERIENCE_ORB_PICKUP:1:2"
+
+replace_upgrade_shop: false
+
+# 强制竞技场组应用指定资源模式
+# 组内的竞技场将*不允许*自行选择资源模式
+# 可用资源模式:
+# exp - 经验模式
+# normal - 普通模式
+force_groups:
+  - "4队8人经验起床:exp"
+  - "8队4人经验起床:exp"
+  - "4v4:normal"
+
+# 杀死对手夺取经验百分比
+# 设置为 0 关闭此功能
+kill_reclaim_exp: 25
+
+kill_reclaim_message: "&a你杀死 {vtColor}{victim} &a获得了 &6&l{exp} &a点经验"
+
+# 指定特定商店物品售价
+# [商店物品特征值:经验售价]
+special_item_cost:
+  - "ender_pearl:400"          # 末影珍珠 400经验
+  - "fireball:100"          # 火焰弹 100经验
+  - "invisibility:500"  # 隐身药水 500经验
+  - "tnt:233"                  # TNT 233经验
+  - "jump_potion:111"          # 跳跃药水 111经验
+  - "recover_bed:500"          # 恢复床 500经验
+  - "fishing_rod:100"
+  - "stick:1"
+  - "obsidian:1000"
+  - "diamond-sword:300"
+
+Item:
+  1:
+    material: PAPER
+    name: "&a资源类型选择 &7(右键打开)"
+    lore:
+      - ""
+    execute: "[gui_open] resModeChange"
+
+GUI:
+  size: 27
+  title: "&7资源类型选择"
+  items:
+    11:
+      material: LEGACY_BED
+      name: "&a普通物资"
+      lore:
+        - "&7拥有铁、金、钻石、绿宝石货币资源的正常起床战争模式"
+        - "&7不受部分价格调整影响，且物资可以丢给他人"
+        - ""
+        - "{choose_normal}"
+      execute: "[changeResMode] normal"
+    15:
+      material: LEGACY_EXP_BOTTLE
+      name: "&a经验物资"
+      lore:
+        - "&7货币统一为经验等级，按比例分配的起床战争模式"
+        - "&c注意: 物品价格略贵于普通模式"
+        - ""
+        - "{choose_exp}"
+      execute: "[changeResMode] exp"

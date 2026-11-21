@@ -1,0 +1,107 @@
+NOTICE
+
+高仿布吉岛经验起床服务器整合包
+Copyright (C) 2024-2026 黑色的传说
+整合包版本：v2.2.0
+基于 GNU GPL v3 协议开源
+
+项目主页：https://www.minebbs.com/resources/10218/
+
+
+一、本整合包原创部分
+----------------------------------------------------------------------
+下列内容由作者（黑色的传说）原创，基于 GNU GPL v3 协议开源：
+- 所有配置文件中由作者编写的配置项与注释（即“源码”）
+- 整合包根目录的启动脚本、自动化工具
+- 作者编写的文档、README、更新日志
+- 作者原创或修改的资源包/纹理部分
+
+根据 GPL v3 协议：
+- 允许：复制、修改、重新分发
+- 要求：分发时必须附带 GPL v3 完整文本、保留本版权声明；
+       任何基于本整合包的修改版本必须以 GPL v3 协议开源
+- 禁止：将 GPL v3 授权的代码用于闭源的商业软件
+
+由于本整合包的原创部分主要为配置文件（YAML/JSON 格式），
+这些文件本身即为可读、可修改的“源码”，
+因此无需额外整理源码目录。您可以直接编辑整合包内
+plugins/ 目录下的各配置文件来查看和修改。
+
+
+二、第三方组件
+----------------------------------------------------------------------
+本整合包打包了以下第三方组件，版权归各自原作者所有。
+
+【服务器核心】
+- Paper 1.21.4
+  许可证：GPL v3（或按其官方发布许可）
+  获取地址：https://papermc.io/
+
+【GPL 协议插件】
+- BedWars1058 (核心起床战争插件)
+  获取地址：https://modrinth.com/plugin/bedwars1058
+- 233BedWars (经验模式等玩法拓展)
+  获取地址：https://github.com/SerendipityR-2022/233BedWars
+- PlaceholderAPI (变量前置)
+  获取地址：https://modrinth.com/plugin/placeholderapi
+- SkinsRestorer (皮肤恢复)
+  获取地址：https://modrinth.com/project/TsLS8Py5
+- ViaVersion (版本兼容)
+  获取地址：https://hangar.papermc.io/ViaVersion/ViaVersion
+- ViaBackwards (版本兼容)
+  获取地址：https://hangar.papermc.io/ViaVersion/ViaBackwards
+- EssentialsX (基础指令与区域保存前置)
+  获取地址：https://essentialsx.net/
+
+【MIT 协议插件】
+- Geyser-Spigot (基岩版互通)
+  获取地址：https://geysermc.org
+- Floodgate (基岩版正版验证)
+  获取地址：https://github.com/GeyserMC/Floodgate
+- Simple Voice Chat (局部语音聊天)
+  获取地址：https://github.com/Softbear-Studios/Simple-Voice-Chat
+
+【其他许可证的插件】
+以下插件的许可证以各自原发布页声明为准：
+- Citizens (OSL-3.0) - NPC插件
+- OldCombatMechanics (MPL-2.0) - 旧版战斗机制
+- ProtocolLib - 数据包底层库
+- AutoUpdateGeyser (自定义许可) - Geyser自动更新
+- DeathPulse (自定义许可) - 战斗伤害显示
+- logintp (未知/自定义) - 登录自动传送
+- PaperMenuAPI (未知/自定义) - UI菜单API
+- BedWars1058-Compass (附属) - 指南针导航
+- CommandMaker (自定义) - 自定义指令
+- LoginTeleport (自定义) - 登录传送
+
+【免责与版权声明】
+1. 本整合包基于 GNU GPL v3 协议开源，详见包内 LICENSE 文件。
+2. 第三方插件版权归各自原作者所有。若再分发，请严格遵守各插件的原始开源协议（如 GPL 要求提供源码，MIT 要求保留声明）。
+3. 整合包内附带的地图、配置文件及自定义脚本归本整合包作者所有，未经允许禁止私自提取用于商业用途。
+
+用户可自行前往以下平台获取各插件的最新版本与许可证信息：
+- SpigotMC: https://www.spigotmc.org/
+- MineBBS: https://www.minebbs.com/
+- Hangar: https://hangar.papermc.io/
+- Modrinth: https://modrinth.com/
+
+【地图文件】
+经验起床对战地图版权归原地图作者所有。
+本整合包使用的地图遵循原作者的许可条款。
+如地图为第三方作者作品，请在使用时遵守原作者的许可证要求。
+
+
+三、鸣谢
+----------------------------------------------------------------------
+- 玩法参考：布吉岛经验起床服务器
+- 233BedWars 插件作者 Serendipity
+- 各第三方插件与地图的原作者
+- 所有为整合包提供反馈与测试的玩家
+
+
+四、免责声明
+----------------------------------------------------------------------
+本整合包按"原样"提供，不提供任何明示或暗示的担保。
+作者不对使用本整合包导致的任何损失负责。
+
+GNU GPL v3 协议的完整文本见同目录的 LICENSE 文件。

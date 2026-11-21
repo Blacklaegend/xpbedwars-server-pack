@@ -1,0 +1,9 @@
+{
+  "server_dir": "..",
+  "java_path": "java",
+  "min_mem": "4G",
+  "max_mem": "8G",
+  "paper_version": "1.21.4",
+  "paper_build": "",
+  "panel_port": 8765
+}

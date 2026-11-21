@@ -1,0 +1,43 @@
+# BedWars1058 by andrei1058.
+# generators.yml Documentation: https://gitlab.com/andrei1058/BedWars1058/wikis/generators-configuration
+
+Default:
+  iron:
+    delay: 0.1
+    amount: 8
+    spawn-limit: 1000
+  gold:
+    delay: 2
+    amount: 2
+    spawn-limit: 1000
+  diamond:
+    tierI:
+      delay: 15
+      amount: 1
+      spawn-limit: 1000
+    tierII:
+      delay: 15
+      amount: 2
+      spawn-limit: 1000
+      start: 360
+    tierIII:
+      delay: 10
+      amount: 3
+      spawn-limit: 1000
+      start: 1080
+  emerald:
+    tierI:
+      delay: 5
+      amount: 1
+      spawn-limit: 1000
+    tierII:
+      delay: 5
+      amount: 2
+      spawn-limit: 1000
+      start: 720
+    tierIII:
+      delay: 5
+      amount: 3
+      spawn-limit: 1000
+      start: 1440
+stack-items: true

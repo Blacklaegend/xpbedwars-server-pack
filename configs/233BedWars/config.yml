@@ -1,0 +1,35 @@
+##############################
+# 233BedWars by SerendipityR #
+##############################
+
+# 基础插件: BedWars1058_23.12.2+
+
+serverID: "#BH01"
+
+# 玩法及拓展借鉴于 **Wdsj.Net/Mc233.CN**
+# 国内优质原创小游戏服务器，欢迎游玩！
+addons:
+  # 计分板编辑器
+  ScoreBoardEditor: true
+  # 队伍名称主题
+  TeamNameThemes: false
+  # 详细战斗指示
+  CombatDetails: true
+  # 快捷指令
+  FastCommands: true
+  # 大佬警告
+  DalaoWarning: true
+  # 平衡性调整
+  BalancedAdjustments: false
+  # 资源点全息图设置
+  GeneratorEditor: true
+  # 游戏内ActionBar设置（关闭：不再显示"家距离"，把 ActionBar 让给指南针）
+  ActionBar: false
+  # 商店物品拓展
+  ShopItemAddon: true
+  # 经验模式
+  XpResMode: true
+  # 全域游戏事件
+  GlobalEvents: false
+  # 游戏开始动画
+  GameStartAnimation: true

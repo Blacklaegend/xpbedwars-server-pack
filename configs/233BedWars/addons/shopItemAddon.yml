@@ -1,0 +1,247 @@
+# 商店物品拓展
+
+shop_layout:
+  - "0:armor-category"
+  - "1:melee-category"
+  - "2:blocks-category"
+  - "3:tools-category"
+  - "4:ranged-category"
+  - "5:potions-category"
+  - "6:utility-category"
+  - "7:mounts-category"
+  - "8:quick-buy-category"
+
+settings:
+  disable_items_for_groups:
+    rush_4v4v4v4:
+      - "recover_bed"
+  cooling:
+    items:
+      - "suicide_bomber:5"
+      - "recover_bed:5"
+      - "landmine:5"
+      - "light_landmine:5"
+      - "flight_firework:5"
+      - "lucky_block:5"
+      - "rescue_platform:20"
+    progress:
+      length: 30
+      unit: "|"
+      color_current: "&a"
+      color_left: "&f"
+  recover_bed:
+    enable: true
+    recover_sound: "ENTITY_PLAYER_LEVELUP:1:2"
+    valid_minutes: 5
+    use_count_limit: 1
+    title_stay: 3
+  suicide_bomber:
+    enable: true
+    use_sound: "ENTITY_CHICKEN_EGG:1:1"
+    active_time: 5
+  landmine:
+    enable: true
+    explosion_damage: 5
+    set_fire: false
+    break_block: false
+  light_landmine:
+    enable: true
+    explosion_damage: 5
+    set_fire: false
+    break_block: false
+  flight_firework:
+    enable: true
+    fuse_delay: 1
+    explosion_damage: 3
+    set_fire: false
+    break_block: false
+  lucky_block:
+    enable: true
+    # 格式: 幸运/厄运:触发概率:执行类型
+    # 执行类型:
+    # ITEM - 物品名称:物品描述:物品ID:物品数量:物品附魔
+    # EFFECT - 药水效果:效果等级:持续时间:粒子效果:强制覆盖
+    # EXPLOSION - 爆炸威力:生成火焰:破坏方块
+    # TELEPORT - X轴增量:Y轴增量:Z轴增量
+    # COMMAND - 以控制台执行具体指令 (变量: %player_name%)
+    # SAY - 以玩家身份发送消息 (变量: %player_name%)
+    possibilities:
+      - "0.1:LUCKY:ITEM:&b幸运的钻石头盔:&a描述1#&6描述2#&c描述3:LEGACY_DIAMOND_HELMET:1:PROTECTION_ENVIRONMENTAL.4#DURABILITY.3"
+      - "0.1:LUCKY:EFFECT:SPEED:0:30:true:true"
+      - "0.1:UNLUCKY:TELEPORT:0:30:0"
+      - "0.1:UNLUCKY:EXPLOSION:5:true:true"
+      - "0.1:UNLUCKY:COMMAND:points add %player_name% 1"
+      - "0.1:UNLUCKY:SAY:我是神里绫华的狗！"
+  grenade:
+    enable: true
+    explosion_damage: 3
+    fuse_delay: 3
+    set_fire: false
+    break_block: true
+  bridge_chicken:
+    enable: false
+    build_delay: 0.25
+    max_blocks: 36
+    complete_explosion: true
+    explosion_damage: 1
+    set_fire: false
+    break_block: false
+  bridge_cat:
+    enable: false
+    build_delay: 0.25
+    max_blocks: 26
+    complete_explosion: true
+    explosion_damage: 1
+    set_fire: false
+    break_block: false
+  pillar:
+    enable: true
+    build_height: 3
+  toxic_ball:
+    enable: true
+    effect: "POISON"
+    effect_level: 0
+    effect_duration: 10
+    effect_particle: true
+  obsidian_breaker:
+    enable: false
+    convert_time: 10
+    replace_block: "LEGACY_STONE"
+    complete_explosion: true
+    explosion_damage: 1
+    set_fire: false
+    break_block: false
+  portal_scroll:
+    enable: true
+    portal_time: 5
+    title_stay: 25
+    progress_length: 10
+    progress_unit: "{unicode_arrow}"
+    progress_color_current: "&a"
+    progress_color_left: "&f"
+  magical_wool:
+    enable: true
+    expand_length: 10
+    expand_delay: 3
+    place_sound: "BLOCK_WOOL_PLACE:1:1"
+  rescue_platform:
+    enable: true
+    remove_delay: 10
+    y_offset: -2
+    platform_material: "SLIME_BLOCK"
+messages:
+  cooling_actionbar: "&e&l{item} {progress} &f{cooling_time} &e秒"
+  error_disable_item: "&c此物品在该模式下已禁用。"
+  recover_bed_destroy_tips: "&a目前处于游戏10分钟内，即使无床，苟依然有机会购买回春床恢复！"
+  recover_bed_success_title: "&a&l床已恢复"
+  recover_bed_success_subtitle: "&3{player}恢复了床，现在死亡可以重生！"
+  recover_bed_success_msg: "&e你的队伍的床现在已经恢复！"
+  recover_bed_success_broadcast:
+    - "&7▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃"
+    - ""
+    - "&l{tColor}{tName} &r&a的床已被 {tColor}{player} &r&a恢复！"
+    - ""
+    - "&7▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃▃"
+  recover_bed_cant_buy_invalid: "&c开局时间已过5分钟，不能买这个物品！"
+  recover_bed_cant_buy_alive: "&c你的床还在，不能买这个物品！"
+  recover_bed_invalid: "&c你的床已被摧毁，死亡后无法重生！"
+  recover_bed_limited: "&c每局只能使用一次，你的床无法再恢复！"
+  recover_bed_failed: "&c开局时间已过10分钟，你的床无法再恢复！"
+  suicide_bomber_active: "&e你身上的炸弹将在{bomb_time}秒后爆炸！"
+  suicide_bomber_fuse: "&c&lBOOM!"
+  landmine_place: "&e你放置了地雷！"
+  landmine_fuse: "&e你的地雷被引爆了！"
+  landmine_remove: "&e你的地雷被挖了！"
+  flight_firework_use: "&e点火起飞！"
+  flight_firework_title: "&c呀！好疼！"
+  lucky_block_lucky: "&a&l欧皇！"
+  lucky_block_unlucky: "&c&l非酋！"
+  pillar_build: "&eBiu!"
+  portal_scroll_tips: "&e将在 &e&l{left_time} &r&e后回城"
+  portal_scroll_broadcast: "{tColor}{tName}{player} &e&l正在使用回城卷轴！"
+  portal_scroll_use_title: "&c请勿移动！"
+  portal_scroll_use_subtitle: "{portal_progress}"
+  portal_scroll_success: "&e回城！"
+  portal_scroll_failed: "&c已移动，取消回城！"
+  rescue_platform_space_inadequate: "&c你所在的位置空间不足！"
+
+items:
+  recover_bed:
+    category: "utility-category"
+    slot: 31
+    material: LEGACY_BED
+    cost: "emerald:20"
+  suicide_bomber:
+    category: "utility-category"
+    slot: 32
+    material: LEGACY_EXPLOSIVE_MINECART
+    cost: "iron:30"
+  landmine:
+    category: "utility-category"
+    slot: 33
+    material: LEGACY_STONE_PLATE
+    cost: "gold:6"
+  light_landmine:
+    category: "utility-category"
+    slot: 34
+    material: LEGACY_IRON_PLATE
+    cost: "gold:6"
+  flight_firework:
+    category: "utility-category"
+    slot: 37
+    material: LEGACY_FIREWORK
+    cost: "gold:13"
+  lucky_block:
+    category: "utility-category"
+    slot: 38
+    material: LEGACY_SPONGE
+    cost: "emerald:4"
+  grenade:
+    category: "utility-category"
+    slot: 39
+    material: LEGACY_FIREWORK_CHARGE
+    cost: "iron:40"
+  bridge_chicken:
+    category: "utility-category"
+    slot: 
+    material: PLAYER_HEAD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTYzODQ2OWE1OTljZWVmNzIwNzUzNzYwMzI0OGE5YWIxMWZmNTkxZmQzNzhiZWE0NzM1YjM0NmE3ZmFlODkzIn19fQ=="
+    cost: "iron:60"
+  bridge_cat:
+    category: "utility-category"
+    slot: 
+    material: PLAYER_HEAD
+    texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmIyNTNmYzZiNjU2OTg4NDUzYTJkNzEzOGZjYTRkMWYyNzUyZjQ3NjkxZjBjNDM0ZTQzMjE4Mzc3MWNmZTEifX19"
+    cost: "iron:75"
+  pillar:
+    category: "utility-category"
+    slot: 40
+    material: LEGACY_SANDSTONE
+    cost: "iron:4"
+  toxic_ball:
+    category: "utility-category"
+    slot: 41
+    material: LEGACY_SLIME_BALL
+    cost: "iron:40"
+  obsidian_breaker:
+    category: "utility-category"
+    slot: 
+    material: LEGACY_BLAZE_POWDER
+    cost: "emerald:5"
+  portal_scroll:
+    category: "utility-category"
+    slot: 42
+    material: LEGACY_PAPER
+    cost: "emerald:5"
+  rescue_platform:
+    category: "utility-category"
+    slot: 47
+    material: BLAZE_ROD
+    cost: "emerald:2"
+  magical_wool:
+    category: "utility-category"
+    slot: 43
+    material: LEGACY_WOOL
+    enchanted: true
+    amount: 4
+    cost: "iron:8"

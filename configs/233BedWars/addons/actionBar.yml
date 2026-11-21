@@ -1,0 +1,9 @@
+# 游戏内ActionBar设置
+
+refreshTicks: 20
+
+actionBar:
+  waiting: "&f可以使用全服组队命令&c/party&f哦"
+  playing: "家距离你: &a{tDistance}米  {tIndicator}"
+tips:
+  - "&a&l小贴士：&f烟花达到一定高度会触发爆炸，因此可以坐上后立马下来作为向上导弹。"

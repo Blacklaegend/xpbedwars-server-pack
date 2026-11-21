@@ -1,0 +1,232 @@
+# 全域游戏事件
+
+settings:
+  vote_events:
+    # 启用事件投票，不启用则为默认事件
+    enable: true
+    # 强制应用指定事件的竞技场组
+    # [!] 位于此竞技场组内的玩家无法进行投票
+    force_groups:
+      - "rush_4v4v4v4:infinite_firepower"
+  # 进场时的默认事件
+  default_event: "random"
+
+messages:
+  vote_msg: "&e你选择了 &a{event_name}"
+  vote_fail_msg: "&c该事件未被启用。"
+  vote_result: "&e事件 &6{final_event} &e取得了{final_votes}票，本局游戏将使用此事件！"
+  vote_result_none: "&e没有足够的投票开启事件，本局游戏将不启用事件！"
+  event_broadcast:
+    - "&e本局游戏已启用事件_(:з」∠)_:"
+    - "&a{event_name} &b{event_description}！"
+  event_info:
+    - "none:&c无:将不启用任何事件"
+    - "random:&c随机:将随机使用全域事件"
+    - "potions:&a随机药水:每隔60秒随机获得一种正面药水效果"
+    - "doomsday_strike:&c末日打击:每隔一段时间将会对中心岛进行轰炸"
+    - "infinite_firepower:&a无限火力:所有资源生成速度x2"
+    - "forge_leveling:&a全员低保:熔炉每五分钟自动升级"
+    - "luck_advent:&a幸运降临:每隔五分钟将随机刷新幸运方块"
+    - "inadequate_firepower:&c火力不足:所有资源生成速度x0.5"
+  potions_give: "&a你获得了 &6{effect_name} {effect_level} &a效果！"
+  doomsday_strike_prepare_msg: "&c中心岛将在 &e{notice_time}秒 &c后进行轰炸！"
+  doomsday_strike_prepare_title: "&c&l{radiation} 危险 {radiation}"
+  doomsday_strike_prepare_subtitle: "&7中心岛将在 &e{notice_time} &7秒后进行轰炸！"
+  # 如果不喜欢罗马数字，{tier}也是一个可选的占位符。
+  # forge_leveling_upgrade: "&a你所在团队的熔炉已经升至 &6{tier} &a级！"
+  forge_leveling_upgrade: "&a你所在团队的熔炉已经升至 &6{tier_roman} &a级！"
+  luck_advent_refresh: "&e幸运方块已刷新！"
+
+events:
+  random:
+    enable: true
+    disable_events:
+      - "inadequate_firepower"
+  potions:
+    enable: true
+    # 药水效果给予间隔 (秒)
+    interval: 60
+    # 使所有人共享同一药水效果增益
+    share_effect: false
+    # 死亡后保持药水效果
+    death_keep: true
+    # 随机抽取的药水效果
+    # [药水效果]:[等级]:[粒子效果]:[名称]
+    potions:
+      - "FAST_DIGGING:0:true:急迫"
+      - "SPEED:0:true:速度"
+      - "INCREASE_DAMAGE:0:true:力量"
+      - "REGENERATION:0:true:生命恢复"
+      - "DAMAGE_RESISTANCE:0:true:抗性提升"
+      - "FIRE_RESISTANCE:0:true:火焰抗性"
+      - "WATER_BREATHING:0:true:水下呼吸"
+      - "INVISIBILITY:0:true:隐身"
+      - "NIGHT_VISION:0:true:夜视"
+      - "JUMP:0:true:跳跃提升"
+      - "ABSORPTION:0:true:伤害吸收"
+      #- "HEALTH_BOOST:0:true:生命提升"
+      - "SATURATION:0:true:饱和"
+  doomsday_strike:
+    enable: true
+    # 轰炸时间间隔 (秒)
+    interval: 45
+    # 在轰炸开始前提醒玩家
+    notice:
+      time: 5
+      title_fadeIn: 20
+      title_stay: 60
+      title_fadeOut: 20
+    explosives:
+      # 轰炸中心点高度偏移
+      # 以 *绿宝石生成点* 为中心确立X/Z轴平面
+      y_offset: 30
+      # 轰炸区域半径
+      radius: 20
+      # 每次轰炸尝试生成的爆炸物数量
+      amount: 120
+      # TNT爆炸时间 (ticks)
+      tnt_fuse_ticks: 60
+      # 爆炸威力
+      power: 3
+      # 方块破坏
+      break_blocks: true
+      # 爆炸物召唤间隔 (ticks)
+      summon_delay: 2
+      # 保护中心岛资源不被炸毁
+      protect_resources: true
+  infinite_firepower:
+    enable: true
+    # 资源点生成倍率，此项影响资源点产出时间
+    generator_ratio: 2.0
+    # 受影响的资源点
+    generators:
+      iron: true
+      gold: true
+      diamond: true
+      emerald: true
+  inadequate_firepower:
+    enable: true
+    # 资源点生成倍率，此项影响资源点产出时间
+    generator_ratio: 0.5
+    # 受影响的资源点
+    generators:
+      iron: true
+      gold: true
+      diamond: true
+      emerald: true
+  forge_leveling:
+    enable: true
+    # 熔炉升级间隔时间 (秒)
+    interval: 300
+    # 最大升级等级
+    max_tier: 4
+  luck_advent:
+    enable: true
+    # 幸运方块生成间隔
+    interval: 300
+    # 生成半径
+    # 以 *复活等待点* 为中心确立X/Z轴平面
+    radius: 100
+    # 尝试生成方块数量
+    amount: 200
+    # 最小生成Y轴
+    y_min: 45
+    # 最大生成Y轴
+    y_max: 100
+    # 每 tick 放置的方块数量
+    # [!] 过大的值可能导致瞬时卡顿
+    place_blocks_per_tick: 10
+
+Item:
+  2:
+    material: LEGACY_MAGMA_CREAM
+    name: "&a事件投票 &7(右键打开)"
+    lore:
+      - ""
+    execute: "[gui_open] voteEvents"
+
+GUI:
+  size: 36
+  title: "&c事件投票"
+  items:
+    10:
+      material: LEGACY_BARRIER
+      name: "&c无"
+      lore:
+        - "&7将不启用任何事件！"
+        - ""
+        - "&7当前票数: &f{votes#none}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] none"
+    11:
+      material: LEGACY_STRING
+      name: "&c随机"
+      lore:
+        - "&7将随机使用全域事件！"
+        - ""
+        - "&7当前票数: &f{votes#random}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] random"
+    12:
+      material: LEGACY_POTION
+      name: "&a随机药水"
+      lore:
+        - "&7每隔60秒随机获得一种正面药水效果！"
+        - ""
+        - "&7当前票数: &f{votes#potions}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] potions"
+    13:
+      material: LEGACY_TNT
+      name: "&c末日打击"
+      lore:
+        - "&7每隔一段时间将会对中心岛进行轰炸！"
+        - ""
+        - "&7当前票数: &f{votes#doomsday_strike}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] doomsday_strike"
+    14:
+      material: LEGACY_EMERALD
+      name: "&a无限火力"
+      lore:
+        - "&7所有资源生成速度x2！"
+        - ""
+        - "&7当前票数: &f{votes#infinite_firepower}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] infinite_firepower"
+    15:
+      material: LEGACY_FURNACE
+      name: "&a全员低保"
+      lore:
+        - "&7熔炉每五分钟自动升级！"
+        - ""
+        - "&7当前票数: &f{votes#forge_leveling}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] forge_leveling"
+    16:
+      material: LEGACY_SPONGE
+      name: "&a幸运降临"
+      lore:
+        - "&7每隔五分钟将随机刷新幸运方块！"
+        - ""
+        - "&7当前票数: &f{votes#luck_advent}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] luck_advent"
+    19:
+      material: LEGACY_REDSTONE
+      name: "&c火力不足"
+      lore:
+        - "&7所有资源生成速度x0.5！"
+        - "&c不会在随机事件中出现"
+        - ""
+        - "&7当前票数: &f{votes#inadequate_firepower}"
+        - ""
+        - "&e点击选择"
+      execute: "[voteEvent] inadequate_firepower"
