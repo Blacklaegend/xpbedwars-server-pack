@@ -281,8 +281,8 @@ BedWars1058 是在上游基础上修改过的版本，修改记录和补丁源�
 ## 联系与赞助
 
 - **QQ 群**：1129687526（问题反馈、公测通知）
-- **MineBBS 原帖**：<https://www.minebbs.com/threads/50866/>
-- **爱发电**：<https://ifdian.net/a/heisedechuanshuo>
+- **MineBBS 原帖**：<https://www.minebbs.com/resources/10218/>
+- **爱发电赞助**：<https://ifdian.net/a/heisedechuanshuo>
 
 本项目制作花费了大量时间成本，包括定做插件、修改配置与制作面板。  
 如果你觉得项目对你有帮助，愿意支持持续开发和维护，欢迎赞助。
@@ -293,18 +293,3 @@ BedWars1058 是在上游基础上修改过的版本，修改记录和补丁源�
 
 📄 [高版本经验起床一键开服包使用指南（PDF）](docs/高版本经验起床一键开服包使用指南.pdf)
 
----
-
-## 一键更新 GitHub
-
-仓库根目录提供 `update-github.bat`，维护者双击即可：
-
-1. 自动 `git add -A`
-2. 输入提交说明（直接回车自动生成）
-3. 自动提交并推送到 `origin main`
-
-推送目标：
-
-```text
-https://github.com/Blacklaegend/xpbedwars-server-pack
-```
