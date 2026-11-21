@@ -116,10 +116,9 @@
 │     ├─ config.yml
 │     └─ addons/
 ├─ plugins-src/
-│  └─ BWCompass/                # 自研指南针插件源码
-│     ├─ src/com/bwcompass/
-│     ├─ plugin.yml
-│     └─ README.md
+│  ├─ BWCompass/                # 自研指南针插件源码
+│  ├─ BedWarsTeamSelector/      # 自研队伍选择器 / /zd 源码
+│  └─ BETag/                    # 自研 BE 前缀插件源码
 ├─ docs/
 │  ├─ server-intro.md           # 服务器介绍页
 │  ├─ configuration.md          # BW1058 / 233 配置说明
@@ -250,34 +249,36 @@ plugins/233BedWars/addons/
 
 ## 自研插件源码
 
-### BWCompass（已开源）
+以下三个插件都是本整合包自己维护的源码，已放入 `plugins-src/`：
 
-`plugins-src/BWCompass/` 包含完整的 Java 源码、`plugin.yml` 和构建说明。
+### BWCompass（指南针）
 
 - 源码：[plugins-src/BWCompass](plugins-src/BWCompass)
 - 功能：最近敌人追踪、距离显示、磁石指南针、快捷通讯、护甲购买规则配合
-- 发布 jar 时请同时提供对应源码，以符合 GPLv3 要求
+- 构建说明见 [plugins-src/BWCompass/README.md](plugins-src/BWCompass/README.md)
 
-### 队伍选择器与 BETag
+### BedWarsTeamSelector（队伍选择器 + /zd）
 
-这两个功能目前通过第三方插件/配置实现：
+- 源码：[plugins-src/BedWarsTeamSelector](plugins-src/BedWarsTeamSelector)
+- 功能：可视化选队 GUI、`/zd` 组队、队伍人数显示
+- 构建说明见 [plugins-src/BedWarsTeamSelector/README.md](plugins-src/BedWarsTeamSelector/README.md)
 
-- `BedWarsTeamSelector`
-- `BETag`
+### BETag（BE 前缀）
 
-如果它们是你自己编写或你拥有源码，建议同样放入 `plugins-src/` 并以 GPLv3 开源。  
-如果来自第三方，请只在仓库中保留配置示例和官方链接，不要直接提交对方 jar 或反编译源码。
+- 源码：[plugins-src/BETag](plugins-src/BETag)
+- 功能：Floodgate 玩家 `[BE]` 前缀，通过 BedWars1058 `{vPrefix}` 显示
+- 构建说明见 [plugins-src/BETag/README.md](plugins-src/BETag/README.md)
 
-### BE 前缀
+> 如果发布这些插件的编译 jar，请同时提供对应源码，以符合 GPLv3 要求。
 
-BE 前缀本身是配置/称号功能，不需要单独插件源码。相关配置位于：
+### BE 前缀配置
+
+BE 前缀除了 `BETag` 插件外，还需要以下配置配合：
 
 - `BedWars1058/config.yml`
 - `BedWars1058/Addons/`
 - `233BedWars/addons/`
-- BETag / LuckPerms 的称号配置
-
-如果另外写了独立 BE 前缀插件，请同样放入 `plugins-src/`。
+- LuckPerms 的称号/前缀组
 
 ---
 
@@ -287,10 +288,9 @@ BE 前缀本身是配置/称号功能，不需要单独插件源码。相关配�
 
 - BedWars1058
 - 233BedWars
-- BedWarsTeamSelector
 - Geyser-Spigot / Floodgate
 - AuthMe
-- LuckPerms / Vault / BETag
+- LuckPerms / Vault
 - ViaVersion / ViaBackwards
 - PlaceholderAPI / ProtocolLib
 - Simple Voice Chat
@@ -298,6 +298,8 @@ BE 前缀本身是配置/称号功能，不需要单独插件源码。相关配�
 - AdvancedBanZ
 - IpacWhitelist
 - OldCombatMechanics
+
+> `BedWarsTeamSelector`、`BETag` 和 `BWCompass` 是本整合包自研插件，源码已放入 `plugins-src/`；编译后的 jar 不提交到仓库。
 
 请从各自官方发布页下载，并遵守对应许可证。第三方插件版权归各自原作者所有。
 

@@ -1,0 +1,46 @@
+# BedWarsTeamSelector 配置
+# 颜色用 & 代替 §
+
+item:
+  # 是否在等待大厅发放「选择队伍」物品
+  enabled: true
+  # 放在快捷栏第几格（0-8）
+  slot: 8
+  material: NETHER_STAR
+  name: "&b&l选择队伍 &7(右键)"
+  lore:
+    - "&7点击打开队伍选择界面"
+    - "&7当前: &f%team%"
+  # 单人模式（每队 1 人）不发放该物品
+  disable-in-solo: true
+
+gui:
+  title: "&8队伍选择"
+  # 队伍格子从第几格开始排
+  team-slot-start: 10
+  # 随机分队按钮槽位，-1 表示自动放在最后一行
+  random-slot: -1
+  random-material: NETHER_STAR
+  random-name: "&e&l随机分队"
+  random-lore:
+    - "&7点击随机加入一个未满的队伍"
+
+# 开局倒计时剩余多少秒后锁定队伍（<=0 表示不锁）
+lock-seconds: 10
+# 只有队长能选队，队员点选无效
+party-leader-only: true
+# 队伍满员时禁止加入
+block-full-team: true
+
+# 组队（/zd）
+party:
+  # 队伍最多几人，0 表示不限制
+  max-size: 8
+  # 邀请有效期（秒）
+  invite-expire-seconds: 60
+  # 队长 /zd q 时直接解散队伍；设为 false 则提示先转让/解散
+  disband-on-owner-leave: true
+
+# 如果 BedWars1058 的 experimental-team-assigner 为 false，会退回
+# TeamAssignEvent 方案（单人可用，组队会失效），并在启动时打印警告
+warn-if-assigner-disabled: true

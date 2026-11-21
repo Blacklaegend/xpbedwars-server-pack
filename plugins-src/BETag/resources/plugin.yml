@@ -1,0 +1,8 @@
+name: BETag
+version: 1.0.0
+main: com.betag.BETag
+api-version: '1.21'
+author: bwteam
+description: Coloured [BE] prefix for Floodgate (Bedrock) players, rendered by BedWars1058 {vPrefix}
+depend: [floodgate, LuckPerms]
+softdepend: [Vault, BedWars1058]
