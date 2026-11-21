@@ -115,6 +115,11 @@
 │  └─ 233BedWars/               # 233BedWars 配置示例
 │     ├─ config.yml
 │     └─ addons/
+├─ plugins-src/
+│  └─ BWCompass/                # 自研指南针插件源码
+│     ├─ src/com/bwcompass/
+│     ├─ plugin.yml
+│     └─ README.md
 ├─ docs/
 │  ├─ server-intro.md           # 服务器介绍页
 │  ├─ configuration.md          # BW1058 / 233 配置说明
@@ -204,6 +209,75 @@ plugins/233BedWars/addons/
 ```
 
 修改配置前建议备份整个插件目录。面板保存配置时会自动生成 `.bak-时间戳` 文件。
+
+---
+
+## 配置开源范围
+
+不是所有改过的配置都必须放进公开仓库。
+
+### 建议开源的关键配置
+
+- `BedWars1058/config.yml`
+- `BedWars1058/shop.yml`
+- `BedWars1058/generators.yml`
+- `BedWars1058/upgrades2.yml`
+- `BedWars1058/Languages/messages_zh_cn.yml`
+- `BedWars1058/Addons/Compass/config.yml`
+- `BedWars1058/Addons/TeamSelector/config.yml`
+- `233BedWars/config.yml`
+- `233BedWars/addons/*.yml`
+- `server.properties.example`
+- 面板配置示例
+- `start.bat`
+
+这些文件已经放在本仓库的 `configs/` 和 `server.properties.example` 中。
+
+### 不建议放进公开仓库的内容
+
+- `world/playerdata`、`stats`、`advancements`
+- AuthMe 的 `authme.db`
+- IpacWhitelist 的 `Data.sqlite3`
+- AdvancedBanZ 的 `storage.db`
+- LuckPerms 用户数据
+- Geyser / Floodgate 的密钥、身份文件
+- 真实 RCON 密码、服务器地址、Token
+- 玩家皮肤缓存、日志、备份文件
+
+完整配置可以随 Release 整合包分发，但公开 GitHub 仓库只保留可复用的配置示例，避免泄露玩家信息和服务器隐私。
+
+---
+
+## 自研插件源码
+
+### BWCompass（已开源）
+
+`plugins-src/BWCompass/` 包含完整的 Java 源码、`plugin.yml` 和构建说明。
+
+- 源码：[plugins-src/BWCompass](plugins-src/BWCompass)
+- 功能：最近敌人追踪、距离显示、磁石指南针、快捷通讯、护甲购买规则配合
+- 发布 jar 时请同时提供对应源码，以符合 GPLv3 要求
+
+### 队伍选择器与 BETag
+
+这两个功能目前通过第三方插件/配置实现：
+
+- `BedWarsTeamSelector`
+- `BETag`
+
+如果它们是你自己编写或你拥有源码，建议同样放入 `plugins-src/` 并以 GPLv3 开源。  
+如果来自第三方，请只在仓库中保留配置示例和官方链接，不要直接提交对方 jar 或反编译源码。
+
+### BE 前缀
+
+BE 前缀本身是配置/称号功能，不需要单独插件源码。相关配置位于：
+
+- `BedWars1058/config.yml`
+- `BedWars1058/Addons/`
+- `233BedWars/addons/`
+- BETag / LuckPerms 的称号配置
+
+如果另外写了独立 BE 前缀插件，请同样放入 `plugins-src/`。
 
 ---
 

@@ -1,0 +1,7 @@
+name: BWCompass
+version: 1.1.0
+main: com.bwcompass.BWCompass
+api-version: '1.21'
+author: bwteam
+description: BedWars1058 compass - automatic nearest enemy tracking with action bar distance + quick team messages
+depend: [BedWars1058]
