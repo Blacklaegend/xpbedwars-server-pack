@@ -1,4 +1,4 @@
-# xp_bedwars_server_pack
+# xpbedwars-server-pack
 
 高仿布吉岛的高版本经验起床服务器整合包（开源版）。
 
