@@ -76,3 +76,12 @@ tmp/
 test/
 *.tmp
 *.temp
+
+# ===== 编译产物 =====
+*.class
+*.jar
+build/
+target/
+plugins-src/*/build/
+plugins-src/*/target/
+plugins-src/*/classes/
