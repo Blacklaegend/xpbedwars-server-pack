@@ -1,8 +1,8 @@
-# BedWars 服务器整合包（开源版）
+# xp_bedwars_server_pack
+
+高仿布吉岛的高版本经验起床服务器整合包（开源版）。
 
 <img src="docs/images/server-icon.png" width="96" alt="BedWars Server Logo">
-
-高仿布吉岛的高版本经验起床服务器整合包。
 
 > 版本：**v2.2.0**  
 > 核心：Paper 1.21.4 + BedWars1058 + 233BedWars  
